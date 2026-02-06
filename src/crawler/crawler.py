@@ -1,197 +1,140 @@
-"""
-Web Crawler - Main Orchestrator
-===============================
-Entry point that initializes all components and runs the crawl.
-"""
-
 import asyncio
-import logging
-from datetime import datetime, timezone
-from typing import List, Optional, Callable
-from urllib.parse import urlparse
+import re
+from urllib.parse import urljoin, urlparse
+from typing import List, Set, Optional, Callable
+from datetime import datetime
+from dataclasses import dataclass, field
 
-from .config import CrawlerConfig
-from .fetcher import StaticFetcher, DynamicFetcher
-from .frontier import MemoryFrontier, RedisFrontier, BaseFrontier
-from .link_extractor import LinkExtractor
-from .models import CrawlRequest, CrawlResult, CrawlStats
-from .parser import ContentParser, BaseExtractor
-from .rate_limiter import RateLimiter
-from .robots_handler import RobotsHandler
-from .storage import StorageFactory, BaseStorage
-from .worker import CrawlWorker
+import aiohttp
+from bs4 import BeautifulSoup
 
-logger = logging.getLogger(__name__)
+
+@dataclass
+class Page:
+    """One crawled page."""
+    url: str
+    title: str = ""
+    text: str = ""
+    links: List[str] = field(default_factory=list)
+    metadata: dict = field(default_factory=dict)
+    status_code: int = 0
+    depth: int = 0
+    error: Optional[str] = None
+
+    def to_dict(self) -> dict:
+        return {
+            "url": self.url,
+            "title": self.title,
+            "text": self.text[:1000],
+            "links_count": len(self.links),
+            "metadata": self.metadata,
+            "status_code": self.status_code,
+            "depth": self.depth,
+            "error": self.error,
+        }
+
+
+@dataclass
+class CrawlConfig:
+    """Crawler settings."""
+    max_pages: int = 20
+    max_depth: int = 2
+    delay: float = 1.0
+    same_domain: bool = True
+    timeout: int = 30
 
 
 class WebCrawler:
-    """
-    Main crawler class.
-    
-    Usage:
-        config = CrawlerConfig(max_depth=2, max_pages=50)
-        crawler = WebCrawler(config)
-        stats = await crawler.crawl(["https://example.com"])
-    """
+    """Simple async web crawler."""
 
-    def __init__(
-        self,
-        config: Optional[CrawlerConfig] = None,
-        custom_extractors: Optional[List[BaseExtractor]] = None,
-        on_page_crawled: Optional[Callable[[CrawlResult], None]] = None,
-    ):
-        self.config = config or CrawlerConfig()
-        self.config.validate()
-        self.on_page_crawled = on_page_crawled
-        self._is_running = False
-        self._stats = CrawlStats()
-        self._init_components(custom_extractors)
+    def __init__(self, config: CrawlConfig = None, on_page: Callable = None):
+        self.config = config or CrawlConfig()
+        self.on_page = on_page
+        self.visited: Set[str] = set()
+        self.queue: List[tuple] = []
+        self.results: List[Page] = []
+        self.domain = ""
 
-    def _init_components(self, custom_extractors=None):
-        # Frontier
-        if self.config.use_redis:
-            self.frontier: BaseFrontier = RedisFrontier(redis_url=self.config.redis_url)
-        else:
-            self.frontier = MemoryFrontier()
+    async def crawl(self, start_url: str) -> List[Page]:
+        """Crawl starting from URL."""
+        self.domain = urlparse(start_url).netloc
+        self.queue = [(start_url, 0)]
+        self.visited = set()
+        self.results = []
 
-        # Storage
-        self.storage: BaseStorage = StorageFactory.create(
-            self.config.storage_backend,
-            storage_path=self.config.storage_path,
-            mongodb_uri=self.config.mongodb_uri,
-            mongodb_db=self.config.mongodb_db,
-        )
+        async with aiohttp.ClientSession() as session:
+            while self.queue and len(self.results) < self.config.max_pages:
+                url, depth = self.queue.pop(0)
 
-        # Rate limiter
-        self.rate_limiter = RateLimiter(
-            requests_per_second=self.config.requests_per_second,
-            per_domain_delay=self.config.per_domain_delay,
-        )
+                if url in self.visited or depth > self.config.max_depth:
+                    continue
 
-        # Robots handler
-        self.robots_handler = RobotsHandler(user_agent=self.config.user_agent)
+                self.visited.add(url)
+                page = await self._fetch(session, url, depth)
 
-        # Parser
-        self.parser = ContentParser(extractors=custom_extractors)
+                if page:
+                    self.results.append(page)
+                    if self.on_page:
+                        self.on_page(page)
 
-        # Link extractor
-        self.link_extractor = LinkExtractor(
-            allowed_domains=self.config.allowed_domains,
-            same_domain_only=self.config.same_domain_only,
-            excluded_patterns=self.config.excluded_patterns,
-        )
+                    for link in page.links:
+                        if link not in self.visited:
+                            self.queue.append((link, depth + 1))
 
-        # Fetchers
-        self.static_fetcher = StaticFetcher(
-            user_agent=self.config.user_agent,
-            timeout=self.config.request_timeout,
-            max_retries=self.config.max_retries,
-            retry_delay=self.config.retry_delay,
-            follow_redirects=self.config.follow_redirects,
-            max_redirects=self.config.max_redirects,
-        )
+                await asyncio.sleep(self.config.delay)
 
-        self.dynamic_fetcher: Optional[DynamicFetcher] = None
-        if self.config.enable_dynamic:
-            self.dynamic_fetcher = DynamicFetcher(
-                user_agent=self.config.user_agent,
-                timeout=self.config.request_timeout,
-                wait_time=self.config.dynamic_wait_time,
-                max_retries=self.config.max_retries,
-                retry_delay=self.config.retry_delay,
-            )
+        return self.results
 
-    async def crawl(self, seed_urls: List[str]) -> CrawlStats:
-        """Start crawling from seed URLs."""
-        if not seed_urls:
-            raise ValueError("At least one seed URL is required")
-
-        self._is_running = True
-        self._stats = CrawlStats()
-        self._stats.start_time = datetime.now(timezone.utc)
-
-        # Auto-populate allowed domains
-        if self.config.same_domain_only and not self.config.allowed_domains:
-            for url in seed_urls:
-                self.config.allowed_domains.add(urlparse(url).netloc)
-            self.link_extractor = LinkExtractor(
-                allowed_domains=self.config.allowed_domains,
-                same_domain_only=self.config.same_domain_only,
-                excluded_patterns=self.config.excluded_patterns,
-            )
-
-        # Seed the frontier
-        for url in seed_urls:
-            request = CrawlRequest(
-                url=url,
-                depth=0,
-                max_depth=self.config.max_depth,
-                priority=100,
-            )
-            await self.frontier.add(request)
-            self._stats.total_urls_found += 1
-
-        # Create workers
-        workers = []
-        for i in range(self.config.num_workers):
-            worker = CrawlWorker(
-                worker_id=i,
-                config=self.config,
-                frontier=self.frontier,
-                storage=self.storage,
-                rate_limiter=self.rate_limiter,
-                robots_handler=self.robots_handler,
-                parser=self.parser,
-                link_extractor=self.link_extractor,
-                static_fetcher=self.static_fetcher,
-                dynamic_fetcher=self.dynamic_fetcher,
-                stats=self._stats,
-                on_page_crawled=self.on_page_crawled,
-            )
-            workers.append(worker)
-
-        # Run workers
+    async def _fetch(self, session, url: str, depth: int) -> Optional[Page]:
+        """Fetch and parse one page."""
         try:
-            tasks = [asyncio.create_task(w.run(self.config.max_pages)) for w in workers]
-            await asyncio.gather(*tasks)
-        finally:
-            self._is_running = False
-            self._stats.end_time = datetime.now(timezone.utc)
+            timeout = aiohttp.ClientTimeout(total=self.config.timeout)
+            async with session.get(url, timeout=timeout) as resp:
+                if "text/html" not in resp.headers.get("Content-Type", ""):
+                    return None
 
-        await self._cleanup()
-        return self._stats
+                html = await resp.text()
+                return self._parse(html, url, resp.status, depth)
 
-    async def _cleanup(self):
-        try:
-            await self.static_fetcher.close()
-        except Exception:
-            pass
-        if self.dynamic_fetcher:
-            try:
-                await self.dynamic_fetcher.close()
-            except Exception:
-                pass
-        try:
-            await self.storage.close()
-        except Exception:
-            pass
-        if isinstance(self.frontier, RedisFrontier):
-            try:
-                await self.frontier.close()
-            except Exception:
-                pass
+        except Exception as e:
+            return Page(url=url, depth=depth, error=str(e))
 
-    @property
-    def stats(self) -> CrawlStats:
-        return self._stats
+    def _parse(self, html: str, url: str, status: int, depth: int) -> Page:
+        """Parse HTML content."""
+        soup = BeautifulSoup(html, "html.parser")
 
-    @property
-    def is_running(self) -> bool:
-        return self._is_running
+        # Title
+        title = soup.title.string.strip() if soup.title else ""
 
+        # Text (remove scripts/styles)
+        for tag in soup(["script", "style", "nav", "footer"]):
+            tag.decompose()
+        text = re.sub(r"\s+", " ", soup.get_text(strip=True))
 
-def run_crawler(seed_urls: List[str], config: Optional[CrawlerConfig] = None) -> CrawlStats:
-    """Synchronous wrapper for running the crawler."""
-    config = config or CrawlerConfig()
-    crawler = WebCrawler(config)
-    return asyncio.run(crawler.crawl(seed_urls))
+        # Metadata
+        metadata = {}
+        desc = soup.find("meta", {"name": "description"})
+        if desc:
+            metadata["description"] = desc.get("content", "")
+
+        # Links (same domain only)
+        links = []
+        for a in soup.find_all("a", href=True):
+            href = a["href"]
+            if href.startswith(("javascript:", "mailto:", "#")):
+                continue
+            full = urljoin(url, href)
+            if self.config.same_domain and urlparse(full).netloc != self.domain:
+                continue
+            if not re.search(r"\.(jpg|png|gif|pdf|css|js)$", full, re.I):
+                links.append(full)
+
+        return Page(
+            url=url,
+            title=title,
+            text=text,
+            links=list(set(links)),
+            metadata=metadata,
+            status_code=status,
+            depth=depth,
+        )

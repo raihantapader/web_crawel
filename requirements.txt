@@ -1,17 +1,7 @@
-# Core dependencies
+# Core
 aiohttp>=3.9.0
 beautifulsoup4>=4.12.0
 lxml>=5.0.0
-
-# Dynamic rendering (optional)
-playwright>=1.40.0
-
-# Distributed mode (optional)
-redis>=5.0.0
-
-# MongoDB storage (optional)
-motor>=3.3.0
-pymongo>=4.6.0
 
 # Testing
 pytest>=7.4.0

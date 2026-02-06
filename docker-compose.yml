@@ -1,74 +1,13 @@
 services:
-  # Main crawler service
+  # Run all examples (default)
   crawler:
     build: .
-    container_name: web-crawler
-    environment:
-      - REDIS_URL=redis://redis:6379
-      - MONGODB_URI=mongodb://mongodb:27017
     volumes:
       - ./output:/app/output
-    depends_on:
-      redis:
-        condition: service_healthy
-      mongodb:
-        condition: service_healthy
-    networks:
-      - crawler-network
 
-  # Redis for distributed URL queue
-  redis:
-    image: redis:7-alpine
-    container_name: crawler-redis
-    ports:
-      - "6379:6379"
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 5s
-      timeout: 3s
-      retries: 10
-    volumes:
-      - redis-data:/data
-    networks:
-      - crawler-network
-
-  # MongoDB for crawl results storage
-  mongodb:
-    image: mongo:7
-    container_name: crawler-mongodb
-    ports:
-      - "27017:27017"
-    healthcheck:
-      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
-    volumes:
-      - mongo-data:/data/db
-    networks:
-      - crawler-network
-
-  # Test runner
-  tests:
+  # Run tests
+  test:
     build: .
-    container_name: crawler-tests
-    command: pytest tests/ -v --tb=short --cov=src/crawler --cov-report=term-missing
-    environment:
-      - PYTHONPATH=/app/src
-    depends_on:
-      redis:
-        condition: service_healthy
-      mongodb:
-        condition: service_healthy
-    networks:
-      - crawler-network
+    command: pytest tests/ -v --cov=src/crawler --cov-report=term-missing
     profiles:
       - test
-
-volumes:
-  redis-data:
-  mongo-data:
-
-networks:
-  crawler-network:
-    driver: bridge

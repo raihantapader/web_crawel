@@ -1,0 +1,40 @@
+{
+  "url": "https://books.toscrape.com",
+  "pages_crawled": 15,
+  "unique_prices": [
+    "\u00a321.14",
+    "\u00a339.25",
+    "\u00a354.00",
+    "\u00a355.85",
+    "\u00a348.87",
+    "\u00a350.27",
+    "\u00a358.35",
+    "\u00a344.07",
+    "\u00a315.36",
+    "\u00a314.75",
+    "\u00a310.56",
+    "\u00a321.36",
+    "\u00a356.27",
+    "\u00a337.33",
+    "\u00a351.33",
+    "\u00a345.07",
+    "\u00a340.12",
+    "\u00a339.43",
+    "\u00a321.30",
+    "\u00a353.74"
+  ],
+  "price_count": 57,
+  "titles": [
+    "All products | Books to Scrape - Sandbox",
+    "Adult Fiction | \n     Books to Scrape - Sandbox",
+    "Horror | \n     Books to Scrape - Sandbox",
+    "Paranormal | \n     Books to Scrape - Sandbox",
+    "Fiction | \n     Books to Scrape - Sandbox",
+    "Sharp Objects | Books to Scrape - Sandbox",
+    "The Dirty Little Secrets of Getting Your Dream Job | Books to Scrape - Sandbox",
+    "Psychology | \n     Books to Scrape - Sandbox",
+    "Christian | \n     Books to Scrape - Sandbox",
+    "Travel | \n     Books to Scrape - Sandbox"
+  ],
+  "pages_with_images": 0
+}
