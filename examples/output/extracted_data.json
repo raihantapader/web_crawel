@@ -1,0 +1,40 @@
+{
+  "url": "https://books.toscrape.com",
+  "pages_crawled": 15,
+  "unique_prices": [
+    "\u00a352.29",
+    "\u00a350.10",
+    "\u00a322.65",
+    "\u00a343.29",
+    "\u00a356.86",
+    "\u00a337.33",
+    "\u00a337.59",
+    "\u00a348.87",
+    "\u00a353.74",
+    "\u00a356.40",
+    "\u00a317.93",
+    "\u00a317.46",
+    "\u00a322.50",
+    "\u00a335.02",
+    "\u00a319.49",
+    "\u00a332.24",
+    "\u00a323.88",
+    "\u00a313.34",
+    "\u00a347.82",
+    "\u00a337.80"
+  ],
+  "price_count": 69,
+  "titles": [
+    "All products | Books to Scrape - Sandbox",
+    "Spirituality | \n     Books to Scrape - Sandbox",
+    "Politics | \n     Books to Scrape - Sandbox",
+    "Sequential Art | \n     Books to Scrape - Sandbox",
+    "Travel | \n     Books to Scrape - Sandbox",
+    "Suspense | \n     Books to Scrape - Sandbox",
+    "Fantasy | \n     Books to Scrape - Sandbox",
+    "Rip it Up and Start Again | Books to Scrape - Sandbox",
+    "Mesaerion: The Best Science Fiction Stories 1800-1849 | Books to Scrape - Sandbox",
+    "Tipping the Velvet | Books to Scrape - Sandbox"
+  ],
+  "pages_with_images": 0
+}

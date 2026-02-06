@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 
 @dataclass
 class Page:
-    """One crawled page."""
+    """Stores data for ONE crawled page."""
     url: str
     title: str = ""
     text: str = ""
@@ -37,11 +37,11 @@ class Page:
 @dataclass
 class CrawlConfig:
     """Crawler settings."""
-    max_pages: int = 20
-    max_depth: int = 2
-    delay: float = 1.0
-    same_domain: bool = True
-    timeout: int = 30
+    max_pages: int = 20    # Stop after 20 pages
+    max_depth: int = 2     # Only go 2 levels deep
+    delay: float = 1.0     # Wait 1 second between pages
+    same_domain: bool = True  # Stay on same website
+    timeout: int = 30      # Wait max 30 seconds per page
 
 
 class WebCrawler:
@@ -57,11 +57,13 @@ class WebCrawler:
 
     async def crawl(self, start_url: str) -> List[Page]:
         """Crawl starting from URL."""
-        self.domain = urlparse(start_url).netloc
-        self.queue = [(start_url, 0)]
+        
+        self.domain = urlparse(start_url).netloc    # Get domain name
+        self.queue = [(start_url, 0)]     # Add first URL
         self.visited = set()
         self.results = []
-
+        
+         # MAIN LOOP
         async with aiohttp.ClientSession() as session:
             while self.queue and len(self.results) < self.config.max_pages:
                 url, depth = self.queue.pop(0)
@@ -89,12 +91,12 @@ class WebCrawler:
         """Fetch and parse one page."""
         try:
             timeout = aiohttp.ClientTimeout(total=self.config.timeout)
-            async with session.get(url, timeout=timeout) as resp:
-                if "text/html" not in resp.headers.get("Content-Type", ""):
+            async with session.get(url, timeout=timeout) as resp:     # Send HTTP GET request
+                if "text/html" not in resp.headers.get("Content-Type", ""):   # Only process HTML pages (skip images, PDFs)
                     return None
 
-                html = await resp.text()
-                return self._parse(html, url, resp.status, depth)
+                html = await resp.text()   # Get HTML content
+                return self._parse(html, url, resp.status, depth)   # Parse and return Page object
 
         except Exception as e:
             return Page(url=url, depth=depth, error=str(e))

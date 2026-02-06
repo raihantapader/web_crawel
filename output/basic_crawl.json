@@ -12,46 +12,10 @@
     "error": null
   },
   {
-    "url": "https://books.toscrape.com/catalogue/category/books/default_15/index.html",
-    "title": "Default | \n     Books to Scrape - Sandbox",
-    "text": "Default | Books to Scrape - SandboxBooks to ScrapeWe love being scraped!HomeBooksDefaultBooksTravelMysteryHistorical FictionSequential ArtClassicsPhilosophyRomanceWomens FictionFictionChildrensReligionNonfictionMusicDefaultScience FictionSports and GamesAdd a commentFantasyNew AdultYoung AdultSciencePoetryParanormalArtPsychologyAutobiographyParentingAdult FictionHumorHorrorHistoryFood and DrinkChristian FictionBusinessBiographyThrillerContemporarySpiritualityAcademicSelf HelpHistoricalChristianSuspenseShort StoriesNovelsHealthPoliticsCulturalEroticaCrimeDefault152results - showing1to20.Warning!This is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.The Coming Woman: A ...£17.93In stockAdd to basketThe Boys in the ...£22.60In stockAdd to basketStarving Hearts (Triangular Trade ...£13.99In stockAdd to basketAmerica's Cradle of Quarterbacks: ...£22.50In stockAdd to basketAladdin and His Wonderful ...£53.13In stockAdd to bas",
-    "links_count": 73,
-    "metadata": {
-      "description": "\n    \n"
-    },
-    "status_code": 200,
-    "depth": 1,
-    "error": null
-  },
-  {
-    "url": "https://books.toscrape.com/catalogue/category/books/suspense_44/index.html",
-    "title": "Suspense | \n     Books to Scrape - Sandbox",
-    "text": "Suspense | Books to Scrape - SandboxBooks to ScrapeWe love being scraped!HomeBooksSuspenseBooksTravelMysteryHistorical FictionSequential ArtClassicsPhilosophyRomanceWomens FictionFictionChildrensReligionNonfictionMusicDefaultScience FictionSports and GamesAdd a commentFantasyNew AdultYoung AdultSciencePoetryParanormalArtPsychologyAutobiographyParentingAdult FictionHumorHorrorHistoryFood and DrinkChristian FictionBusinessBiographyThrillerContemporarySpiritualityAcademicSelf HelpHistoricalChristianSuspenseShort StoriesNovelsHealthPoliticsCulturalEroticaCrimeSuspense1result.Warning!This is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.Silence in the Dark ...£58.33In stockAdd to basket",
-    "links_count": 53,
-    "metadata": {
-      "description": "\n    \n"
-    },
-    "status_code": 200,
-    "depth": 1,
-    "error": null
-  },
-  {
-    "url": "https://books.toscrape.com/catalogue/category/books/science-fiction_16/index.html",
-    "title": "Science Fiction | \n     Books to Scrape - Sandbox",
-    "text": "Science Fiction | Books to Scrape - SandboxBooks to ScrapeWe love being scraped!HomeBooksScience FictionBooksTravelMysteryHistorical FictionSequential ArtClassicsPhilosophyRomanceWomens FictionFictionChildrensReligionNonfictionMusicDefaultScience FictionSports and GamesAdd a commentFantasyNew AdultYoung AdultSciencePoetryParanormalArtPsychologyAutobiographyParentingAdult FictionHumorHorrorHistoryFood and DrinkChristian FictionBusinessBiographyThrillerContemporarySpiritualityAcademicSelf HelpHistoricalChristianSuspenseShort StoriesNovelsHealthPoliticsCulturalEroticaCrimeScience Fiction16results.Warning!This is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.Mesaerion: The Best Science ...£37.59In stockAdd to basketJoin£35.67In stockAdd to basketWilliam Shakespeare's Star Wars: ...£43.30In stockAdd to basketThe Project£10.65In stockAdd to basketSoft Apocalypse£26.12In stockAdd to basketSleeping Giants (Themis Files ...£48.",
-    "links_count": 68,
-    "metadata": {
-      "description": "\n    \n"
-    },
-    "status_code": 200,
-    "depth": 1,
-    "error": null
-  },
-  {
-    "url": "https://books.toscrape.com/catalogue/category/books/science_22/index.html",
-    "title": "Science | \n     Books to Scrape - Sandbox",
-    "text": "Science | Books to Scrape - SandboxBooks to ScrapeWe love being scraped!HomeBooksScienceBooksTravelMysteryHistorical FictionSequential ArtClassicsPhilosophyRomanceWomens FictionFictionChildrensReligionNonfictionMusicDefaultScience FictionSports and GamesAdd a commentFantasyNew AdultYoung AdultSciencePoetryParanormalArtPsychologyAutobiographyParentingAdult FictionHumorHorrorHistoryFood and DrinkChristian FictionBusinessBiographyThrillerContemporarySpiritualityAcademicSelf HelpHistoricalChristianSuspenseShort StoriesNovelsHealthPoliticsCulturalEroticaCrimeScience14results.Warning!This is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.The Most Perfect Thing: ...£42.96In stockAdd to basketImmunity: How Elie Metchnikoff ...£57.36In stockAdd to basketSorting the Beef from ...£44.74In stockAdd to basketTipping Point for Planet ...£37.55In stockAdd to basketThe Fabric of the ...£55.91In stockAdd to basketDiary of a Citizen ...£",
-    "links_count": 66,
+    "url": "https://books.toscrape.com/catalogue/category/books/christian-fiction_34/index.html",
+    "title": "Christian Fiction | \n     Books to Scrape - Sandbox",
+    "text": "Christian Fiction | Books to Scrape - SandboxBooks to ScrapeWe love being scraped!HomeBooksChristian FictionBooksTravelMysteryHistorical FictionSequential ArtClassicsPhilosophyRomanceWomens FictionFictionChildrensReligionNonfictionMusicDefaultScience FictionSports and GamesAdd a commentFantasyNew AdultYoung AdultSciencePoetryParanormalArtPsychologyAutobiographyParentingAdult FictionHumorHorrorHistoryFood and DrinkChristian FictionBusinessBiographyThrillerContemporarySpiritualityAcademicSelf HelpHistoricalChristianSuspenseShort StoriesNovelsHealthPoliticsCulturalEroticaCrimeChristian Fiction6results.Warning!This is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.Redeeming Love£20.47In stockAdd to basketClose to You£49.46In stockAdd to basketShadows of the Past ...£39.67In stockAdd to basketLike Never Before (Walker ...£28.77In stockAdd to basketCounted With the Stars ...£17.97In stockAdd to basketIf I Run (If ...£49.97In ",
+    "links_count": 58,
     "metadata": {
       "description": "\n    \n"
     },
@@ -72,21 +36,57 @@
     "error": null
   },
   {
-    "url": "https://books.toscrape.com/catalogue/the-requiem-red_995/index.html",
-    "title": "The Requiem Red | Books to Scrape - Sandbox",
-    "text": "The Requiem Red | Books to Scrape - SandboxBooks to ScrapeWe love being scraped!HomeBooksYoung AdultThe Requiem RedThe Requiem Red£22.65In stock (19 available)Warning!This is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.Product DescriptionPatient Twenty-nine.A monster roams the halls of Soothing Hills Asylum. Three girls dead. 29 is endowed with the curse…or gift of perception. She hears messages in music, sees lyrics in paintings. And the corn. A lifetime asylum resident, the orchestral corn music is the only constant in her life.Mason, a new, kind orderly, sees 29 as a woman, not a lunatic. And as his bel Patient Twenty-nine.A monster roams the halls of Soothing Hills Asylum. Three girls dead. 29 is endowed with the curse…or gift of perception. She hears messages in music, sees lyrics in paintings. And the corn. A lifetime asylum resident, the orchestral corn music is the only constant in her life.Mason, a new, kind",
-    "links_count": 8,
+    "url": "https://books.toscrape.com/catalogue/category/books/thriller_37/index.html",
+    "title": "Thriller | \n     Books to Scrape - Sandbox",
+    "text": "Thriller | Books to Scrape - SandboxBooks to ScrapeWe love being scraped!HomeBooksThrillerBooksTravelMysteryHistorical FictionSequential ArtClassicsPhilosophyRomanceWomens FictionFictionChildrensReligionNonfictionMusicDefaultScience FictionSports and GamesAdd a commentFantasyNew AdultYoung AdultSciencePoetryParanormalArtPsychologyAutobiographyParentingAdult FictionHumorHorrorHistoryFood and DrinkChristian FictionBusinessBiographyThrillerContemporarySpiritualityAcademicSelf HelpHistoricalChristianSuspenseShort StoriesNovelsHealthPoliticsCulturalEroticaCrimeThriller11results.Warning!This is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.In Her Wake£12.84In stockAdd to basketThe Elephant Tree£23.82In stockAdd to basketBehind Closed Doors£52.22In stockAdd to basketYou (You #1)£43.61In stockAdd to basketThe Guilty (Will Robie ...£13.82In stockAdd to basketThe 14th Colony (Cotton ...£39.24In stockAdd to basketGive It Back£18.",
+    "links_count": 63,
     "metadata": {
-      "description": "\n    Patient Twenty-nine.A monster roams the halls of Soothing Hills Asylum. Three girls dead. 29 is endowed with the curse…or gift of perception. She hears messages in music, sees lyrics in paintings. And the corn. A lifetime asylum resident, the orchestral corn music is the only constant in her life.Mason, a new, kind orderly, sees 29 as a woman, not a lunatic. And as his bel Patient Twenty-nine.A monster roams the halls of Soothing Hills Asylum. Three girls dead. 29 is endowed with the curse…or gift of perception. She hears messages in music, sees lyrics in paintings. And the corn. A lifetime asylum resident, the orchestral corn music is the only constant in her life.Mason, a new, kind orderly, sees 29 as a woman, not a lunatic. And as his belief in her grows, so does her self- confidence. That perhaps she might escape, might see the outside world. But the monster has other plans. The missing girls share one common thread...each was twenty-nine's cell mate. Will she be next? ...more\n"
+      "description": "\n    \n"
     },
     "status_code": 200,
     "depth": 1,
     "error": null
   },
   {
-    "url": "https://books.toscrape.com/catalogue/category/books/sequential-art_5/index.html",
-    "title": "Sequential Art | \n     Books to Scrape - Sandbox",
-    "text": "Sequential Art | Books to Scrape - SandboxBooks to ScrapeWe love being scraped!HomeBooksSequential ArtBooksTravelMysteryHistorical FictionSequential ArtClassicsPhilosophyRomanceWomens FictionFictionChildrensReligionNonfictionMusicDefaultScience FictionSports and GamesAdd a commentFantasyNew AdultYoung AdultSciencePoetryParanormalArtPsychologyAutobiographyParentingAdult FictionHumorHorrorHistoryFood and DrinkChristian FictionBusinessBiographyThrillerContemporarySpiritualityAcademicSelf HelpHistoricalChristianSuspenseShort StoriesNovelsHealthPoliticsCulturalEroticaCrimeSequential Art75results - showing1to20.Warning!This is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.Scott Pilgrim's Precious Little ...£52.29In stockAdd to basketTsubasa: WoRLD CHRoNiCLE 2 ...£16.28In stockAdd to basketThis One Summer£19.49In stockAdd to basketThe Nameless City (The ...£38.16In stockAdd to basketSaga, Volume 5 (Saga ...£51.04In stockAdd t",
+    "url": "https://books.toscrape.com/catalogue/its-only-the-himalayas_981/index.html",
+    "title": "It's Only the Himalayas | Books to Scrape - Sandbox",
+    "text": "It's Only the Himalayas | Books to Scrape - SandboxBooks to ScrapeWe love being scraped!HomeBooksTravelIt's Only the HimalayasIt's Only the Himalayas£45.17In stock (19 available)Warning!This is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.Product Description“Wherever you go, whatever you do, just . . . don’t do anything stupid.” —My MotherDuring her yearlong adventure backpacking from South Africa to Singapore, S. Bedford definitely did a few things her mother might classify as \"stupid.\" She swam with great white sharks in South Africa, ran from lions in Zimbabwe, climbed a Himalayan mountain without training in Nepal, and wa “Wherever you go, whatever you do, just . . . don’t do anything stupid.” —My MotherDuring her yearlong adventure backpacking from South Africa to Singapore, S. Bedford definitely did a few things her mother might classify as \"stupid.\" She swam with great white sharks in South Africa, ran from lio",
+    "links_count": 9,
+    "metadata": {
+      "description": "\n    “Wherever you go, whatever you do, just . . . don’t do anything stupid.” —My MotherDuring her yearlong adventure backpacking from South Africa to Singapore, S. Bedford definitely did a few things her mother might classify as \"stupid.\" She swam with great white sharks in South Africa, ran from lions in Zimbabwe, climbed a Himalayan mountain without training in Nepal, and wa “Wherever you go, whatever you do, just . . . don’t do anything stupid.” —My MotherDuring her yearlong adventure backpacking from South Africa to Singapore, S. Bedford definitely did a few things her mother might classify as \"stupid.\" She swam with great white sharks in South Africa, ran from lions in Zimbabwe, climbed a Himalayan mountain without training in Nepal, and watched as her friend was attacked by a monkey in Indonesia.But interspersed in those slightly more crazy moments, Sue Bedfored and her friend \"Sara the Stoic\" experienced the sights, sounds, life, and culture of fifteen countries. Joined along the way by a few friends and their aging fathers here and there, Sue and Sara experience the trip of a lifetime. They fall in love with the world, cultivate an appreciation for home, and discover who, or what, they want to become.It's Only the Himalayas is the incredibly funny, sometimes outlandish, always entertaining confession of a young backpacker that will inspire you to take your own adventure. ...more\n"
+    },
+    "status_code": 200,
+    "depth": 1,
+    "error": null
+  },
+  {
+    "url": "https://books.toscrape.com/catalogue/category/books/adult-fiction_29/index.html",
+    "title": "Adult Fiction | \n     Books to Scrape - Sandbox",
+    "text": "Adult Fiction | Books to Scrape - SandboxBooks to ScrapeWe love being scraped!HomeBooksAdult FictionBooksTravelMysteryHistorical FictionSequential ArtClassicsPhilosophyRomanceWomens FictionFictionChildrensReligionNonfictionMusicDefaultScience FictionSports and GamesAdd a commentFantasyNew AdultYoung AdultSciencePoetryParanormalArtPsychologyAutobiographyParentingAdult FictionHumorHorrorHistoryFood and DrinkChristian FictionBusinessBiographyThrillerContemporarySpiritualityAcademicSelf HelpHistoricalChristianSuspenseShort StoriesNovelsHealthPoliticsCulturalEroticaCrimeAdult Fiction1result.Warning!This is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.Fifty Shades Freed (Fifty ...£15.36In stockAdd to basket",
+    "links_count": 53,
+    "metadata": {
+      "description": "\n    \n"
+    },
+    "status_code": 200,
+    "depth": 1,
+    "error": null
+  },
+  {
+    "url": "https://books.toscrape.com/catalogue/the-dirty-little-secrets-of-getting-your-dream-job_994/index.html",
+    "title": "The Dirty Little Secrets of Getting Your Dream Job | Books to Scrape - Sandbox",
+    "text": "The Dirty Little Secrets of Getting Your Dream Job | Books to Scrape - SandboxBooks to ScrapeWe love being scraped!HomeBooksBusinessThe Dirty Little Secrets of Getting Your Dream JobThe Dirty Little Secrets of Getting Your Dream Job£33.34In stock (19 available)Warning!This is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.Product DescriptionDrawing on his extensive experience evaluating applicants for his marketing agency, and featuring stories based on real-life situations, sample cover letters, resumes, and straightforward advice, Don Raskin’s The Dirty Little Secrets of Getting Your Dream Job offers all the necessary tools for navigating the tough job market and securing your dream job.Don Raskin owns and Drawing on his extensive experience evaluating applicants for his marketing agency, and featuring stories based on real-life situations, sample cover letters, resumes, and straightforward advice, Don Raskin’s The Di",
+    "links_count": 9,
+    "metadata": {
+      "description": "\n    Drawing on his extensive experience evaluating applicants for his marketing agency, and featuring stories based on real-life situations, sample cover letters, resumes, and straightforward advice, Don Raskin’s The Dirty Little Secrets of Getting Your Dream Job offers all the necessary tools for navigating the tough job market and securing your dream job.Don Raskin owns and Drawing on his extensive experience evaluating applicants for his marketing agency, and featuring stories based on real-life situations, sample cover letters, resumes, and straightforward advice, Don Raskin’s The Dirty Little Secrets of Getting Your Dream Job offers all the necessary tools for navigating the tough job market and securing your dream job.Don Raskin owns and operates MME, an advertising and marketing agency in New York City. During his twenty-five years at the agency he has interviewed hundreds of new college graduates for positions within his agency and has placed a strong emphasis on entry-level recruitment for positions in creative, account management, traffic, and production. Raskin has also mentored countless students and their parents on best practices for the job search. Over the years, Raskin has kept exceptionally detailed notes on the interviews he has conducted, observing the good, the bad, the ridiculous, the irreverent. He also has a treasure trove of over-the-top cover letters, resumes, interviews, and post interview follow-ups he has conducted and received. Now, he wants to share all the wisdom and insider secrets he has gathered to help students and first-time job seekers find a job in this economy.Based on his remarkable expertise, Raskin's book provides exclusive insight into the job search process and lets readers in on all of the dirty little secrets to landing their first job—or a new one—and finding career success. ...more\n"
+    },
+    "status_code": 200,
+    "depth": 1,
+    "error": null
+  },
+  {
+    "url": "https://books.toscrape.com/catalogue/category/books_1/index.html",
+    "title": "Books | \n     Books to Scrape - Sandbox",
+    "text": "Books | Books to Scrape - SandboxBooks to ScrapeWe love being scraped!HomeBooksBooksTravelMysteryHistorical FictionSequential ArtClassicsPhilosophyRomanceWomens FictionFictionChildrensReligionNonfictionMusicDefaultScience FictionSports and GamesAdd a commentFantasyNew AdultYoung AdultSciencePoetryParanormalArtPsychologyAutobiographyParentingAdult FictionHumorHorrorHistoryFood and DrinkChristian FictionBusinessBiographyThrillerContemporarySpiritualityAcademicSelf HelpHistoricalChristianSuspenseShort StoriesNovelsHealthPoliticsCulturalEroticaCrimeBooks1000results - showing1to20.Warning!This is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.A Light in the ...£51.77In stockAdd to basketTipping the Velvet£53.74In stockAdd to basketSoumission£50.10In stockAdd to basketSharp Objects£47.82In stockAdd to basketSapiens: A Brief History ...£54.23In stockAdd to basketThe Requiem Red£22.65In stockAdd to basketThe Dirty Little Secret",
     "links_count": 73,
     "metadata": {
       "description": "\n    \n"
@@ -96,24 +96,24 @@
     "error": null
   },
   {
-    "url": "https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html",
-    "title": "A Light in the Attic | Books to Scrape - Sandbox",
-    "text": "A Light in the Attic | Books to Scrape - SandboxBooks to ScrapeWe love being scraped!HomeBooksPoetryA Light in the AtticA Light in the Attic£51.77In stock (22 available)Warning!This is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.Product DescriptionIt's hard to imagine a world without A Light in the Attic. This now-classic collection of poetry and drawings from Shel Silverstein celebrates its 20th anniversary with this special edition. Silverstein's humorous and creative verse can amuse the dowdiest of readers. Lemon-faced adults and fidgety kids sit still and read these rhythmic words and laugh and smile and love th It's hard to imagine a world without A Light in the Attic. This now-classic collection of poetry and drawings from Shel Silverstein celebrates its 20th anniversary with this special edition. Silverstein's humorous and creative verse can amuse the dowdiest of readers. Lemon-faced adults and fidgety kids si",
-    "links_count": 3,
+    "url": "https://books.toscrape.com/index.html",
+    "title": "All products | Books to Scrape - Sandbox",
+    "text": "All products | Books to Scrape - SandboxBooks to ScrapeWe love being scraped!HomeAll productsBooksTravelMysteryHistorical FictionSequential ArtClassicsPhilosophyRomanceWomens FictionFictionChildrensReligionNonfictionMusicDefaultScience FictionSports and GamesAdd a commentFantasyNew AdultYoung AdultSciencePoetryParanormalArtPsychologyAutobiographyParentingAdult FictionHumorHorrorHistoryFood and DrinkChristian FictionBusinessBiographyThrillerContemporarySpiritualityAcademicSelf HelpHistoricalChristianSuspenseShort StoriesNovelsHealthPoliticsCulturalEroticaCrimeAll products1000results - showing1to20.Warning!This is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.A Light in the ...£51.77In stockAdd to basketTipping the Velvet£53.74In stockAdd to basketSoumission£50.10In stockAdd to basketSharp Objects£47.82In stockAdd to basketSapiens: A Brief History ...£54.23In stockAdd to basketThe Requiem Red£22.65In stockAdd to basketTh",
+    "links_count": 73,
     "metadata": {
-      "description": "\n    It's hard to imagine a world without A Light in the Attic. This now-classic collection of poetry and drawings from Shel Silverstein celebrates its 20th anniversary with this special edition. Silverstein's humorous and creative verse can amuse the dowdiest of readers. Lemon-faced adults and fidgety kids sit still and read these rhythmic words and laugh and smile and love th It's hard to imagine a world without A Light in the Attic. This now-classic collection of poetry and drawings from Shel Silverstein celebrates its 20th anniversary with this special edition. Silverstein's humorous and creative verse can amuse the dowdiest of readers. Lemon-faced adults and fidgety kids sit still and read these rhythmic words and laugh and smile and love that Silverstein. Need proof of his genius? RockabyeRockabye baby, in the treetopDon't you know a treetopIs no safe place to rock?And who put you up there,And your cradle, too?Baby, I think someone down here'sGot it in for you. Shel, you never sounded so good. ...more\n"
+      "description": ""
     },
     "status_code": 200,
     "depth": 1,
     "error": null
   },
   {
-    "url": "https://books.toscrape.com/catalogue/the-black-maria_991/index.html",
-    "title": "The Black Maria | Books to Scrape - Sandbox",
-    "text": "The Black Maria | Books to Scrape - SandboxBooks to ScrapeWe love being scraped!HomeBooksPoetryThe Black MariaThe Black Maria£52.15In stock (19 available)Warning!This is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.Product DescriptionPraise for Aracelis Girmay:\"[Girmay's] every loss—she calls them estrangements—is a yearning for connection across time and place; her every fragment is a bulwark against ruin.\" — O, The Oprah Magazine \"In Aracelis Girmay we have a poet who collects, polishes, and shares stories with such brilliant invention, tenderness, and intellectual liveliness that it is understandabl Praise for Aracelis Girmay:\"[Girmay's] every loss—she calls them estrangements—is a yearning for connection across time and place; her every fragment is a bulwark against ruin.\" — O, The Oprah Magazine \"In Aracelis Girmay we have a poet who collects, polishes, and shares stories with such brilliant invention, tenderness",
-    "links_count": 9,
+    "url": "https://books.toscrape.com/catalogue/category/books/food-and-drink_33/index.html",
+    "title": "Food and Drink | \n     Books to Scrape - Sandbox",
+    "text": "Food and Drink | Books to Scrape - SandboxBooks to ScrapeWe love being scraped!HomeBooksFood and DrinkBooksTravelMysteryHistorical FictionSequential ArtClassicsPhilosophyRomanceWomens FictionFictionChildrensReligionNonfictionMusicDefaultScience FictionSports and GamesAdd a commentFantasyNew AdultYoung AdultSciencePoetryParanormalArtPsychologyAutobiographyParentingAdult FictionHumorHorrorHistoryFood and DrinkChristian FictionBusinessBiographyThrillerContemporarySpiritualityAcademicSelf HelpHistoricalChristianSuspenseShort StoriesNovelsHealthPoliticsCulturalEroticaCrimeFood and Drink30results - showing1to20.Warning!This is a demo website for web scraping purposes. Prices and ratings here were randomly assigned and have no real meaning.Foolproof Preserving: A Guide ...£30.52In stockAdd to basketThe Pioneer Woman Cooks: ...£56.41In stockAdd to basketMy Paris Kitchen: Recipes ...£33.37In stockAdd to basketMama Tried: Traditional Italian ...£14.02In stockAdd to basketLayered: Baking, Buildin",
+    "links_count": 73,
     "metadata": {
-      "description": "\n    Praise for Aracelis Girmay:\"[Girmay's] every loss—she calls them estrangements—is a yearning for connection across time and place; her every fragment is a bulwark against ruin.\" — O, The Oprah Magazine \"In Aracelis Girmay we have a poet who collects, polishes, and shares stories with such brilliant invention, tenderness, and intellectual liveliness that it is understandabl Praise for Aracelis Girmay:\"[Girmay's] every loss—she calls them estrangements—is a yearning for connection across time and place; her every fragment is a bulwark against ruin.\" — O, The Oprah Magazine \"In Aracelis Girmay we have a poet who collects, polishes, and shares stories with such brilliant invention, tenderness, and intellectual liveliness that it is understandable that we think of her as the blessed curator of our collective histories. There is in her art the vulnerability of one who lives inside of the stories that she gathers in this remarkable collection. Her poems set off alarms even as they transform the world she inhabits, showing us, in the process, exactly what she asks of Romare Bearden’s art: ‘…how not to // assign all blackness near the sea / a captivity.’ This is one of the many sweet contradictions in the black maria, which ‘is a black flag / wounding the pastoral.’ I am deeply thankful that we have a poet of her unique and singular talent writing today.\" —Kwame DawesTaking its name from the moon's dark plains, misidentified as seas by early astronomers, the black maria investigates African diasporic histories, the consequences of racism within American culture, and the question of human identity. Central to this project is a desire to recognize the lives of Eritrean refugees who have been made invisible by years of immigration crisis, refugee status, exile, and resulting statelessness. The recipient of a 2015 Whiting Award for Poetry, Girmay's newest collection elegizes and celebrates life, while wrestling with the humanistic notion of seeing beyond: seeing violence, seeing grace, and seeing each other better.\"to the sea\"great storage house, historyon which we rode, we touchedthe brief pulse of your flutteringpages, spelled with salt & life,your rage, your indifferenceyour gentleness washing our feet,all of you going onwhether or not we live,to you we bring our carnationsyellow & pink, how they floatlike bright sentences atopyour memory's dark hairAracelis Girmay is the author of three poetry collections, the black maria; Kingdom Animalia, which won the Isabella Gardner Award and was a finalist for the NBCC Award; and Teeth. The recipient of a 2015 Whiting Award, she has received grants and fellowships from the Jerome, Cave Canem, and Watson foundations, as well as Civitella Ranieri and the NEA. She currently teaches at Hampshire College's School for Interdisciplinary Arts and in Drew University's low residency MFA program. Originally from Santa Ana, California, she splits her time between New York and Amherst, Massachusetts. ...more\n"
+      "description": "\n    \n"
     },
     "status_code": 200,
     "depth": 1,

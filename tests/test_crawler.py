@@ -7,11 +7,14 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 from crawler import WebCrawler, CrawlConfig, Page, JsonStorage
 
 
-# Page Tests
-
+# Page Tests stores data for one crawled page)
 class TestPage:
-    def test_page_defaults(self):
+    # Test 1: When you create Page with only URL, other fields should be empty
+    def test_page_defaults(self):  
+        # Create page with only URL       
         page = Page(url="https://example.com")
+        
+        # Check all default values
         assert page.url == "https://example.com"
         assert page.title == ""
         assert page.text == ""
@@ -19,9 +22,12 @@ class TestPage:
         assert page.status_code == 0
         assert page.depth == 0
         assert page.error is None
-
+    
+    
+    # Test 2: Create page with all data, check values are stored
     def test_page_with_data(self):
-        page = Page(
+        # Create page with data
+        page = Page(         
             url="https://example.com",
             title="Test",
             text="Hello world",
@@ -29,56 +35,71 @@ class TestPage:
             status_code=200,
             depth=1,
         )
+        
+        # Check values
         assert page.title == "Test"
         assert page.status_code == 200
         assert len(page.links) == 1
 
+    # Test 3: converts Page to dictionary
     def test_page_to_dict(self):
         page = Page(url="https://example.com", title="Test", status_code=200)
-        data = page.to_dict()
+        data = page.to_dict()   # Conv to dict
+        
+        # Check dictionary has correct values
         assert data["url"] == "https://example.com"
         assert data["title"] == "Test"
         assert data["status_code"] == 200
         assert "links_count" in data
 
+    # Test 4:  Page can store error messages
     def test_page_with_error(self):
         page = Page(url="https://example.com", error="Connection failed")
-        assert page.error == "Connection failed"
+        
+        assert page.error == "Connection failed"  # Check
 
 
-# Config Tests
-
+# Config Tests crawler settings
 class TestCrawlConfig:
+    # Test 1:  Default settings are correct
     def test_default_config(self):
-        config = CrawlConfig()
+        config = CrawlConfig()    # No arguments = use defaults
+        
+        # Check
         assert config.max_pages == 20
         assert config.max_depth == 2
         assert config.delay == 1.0
         assert config.same_domain is True
         assert config.timeout == 30
 
+    # Test 2: Custom settings override defaults
     def test_custom_config(self):
         config = CrawlConfig(max_pages=50, max_depth=3, delay=0.5)
+        
         assert config.max_pages == 50
         assert config.max_depth == 3
         assert config.delay == 0.5
 
 
-# Crawler Tests
-
+# Crawler Tests main crawler
 class TestWebCrawler:
+    # Test 1: Crawler initializes correctly
     def test_crawler_init(self):
         crawler = WebCrawler()
+        
         assert crawler.config.max_pages == 20
         assert crawler.visited == set()
         assert crawler.queue == []
         assert crawler.results == []
 
+    # Test 2: Crawler accepts custom config
     def test_crawler_with_config(self):
         config = CrawlConfig(max_pages=10)
         crawler = WebCrawler(config)
+        
         assert crawler.config.max_pages == 10
 
+    # Test 3: Callback function is stored
     def test_crawler_with_callback(self):
         pages_received = []
 
@@ -86,8 +107,9 @@ class TestWebCrawler:
             pages_received.append(page)
 
         crawler = WebCrawler(on_page=callback)
-        assert crawler.on_page is not None
-
+        assert crawler.on_page is not None  
+  
+    # Test 4: _parse() extracts title, text, links from HTML
     def test_parse_html(self):
         crawler = WebCrawler()
         crawler.domain = "example.com"
@@ -113,6 +135,7 @@ class TestWebCrawler:
         assert page.depth == 0
         assert len(page.links) >= 1  # At least internal links
 
+    # Test 5: _parse() extracts meta description
     def test_parse_extracts_metadata(self):
         crawler = WebCrawler()
         crawler.domain = "example.com"
@@ -130,6 +153,7 @@ class TestWebCrawler:
         page = crawler._parse(html, "https://example.com", 200, 0)
         assert page.metadata.get("description") == "A test page"
 
+    # Test 6: _parse() removes script and style tags from text
     def test_parse_filters_scripts(self):
         crawler = WebCrawler()
         crawler.domain = "example.com"
@@ -150,34 +174,42 @@ class TestWebCrawler:
         assert "Real content" in page.text
 
 
-# Storage Tests
-
+# Storage Tests class (save/load JSON)
 class TestJsonStorage:
+    # Test 1: Storage creates output folder
     def test_storage_init(self, tmp_path):
         storage = JsonStorage(output_dir=str(tmp_path))
+        
         assert os.path.exists(tmp_path)
 
+    # Test 2: Save pages to JSON, then load them back
     def test_save_and_load(self, tmp_path):
         storage = JsonStorage(output_dir=str(tmp_path))
         
+        # Create pages
         pages = [
             Page(url="https://a.com", title="Page A", status_code=200),
             Page(url="https://b.com", title="Page B", status_code=200),
         ]
         
+        # Save to file
         filepath = storage.save(pages, "test.json")
         assert os.path.exists(filepath)
         
+        # Load back
         loaded = storage.load("test.json")
         assert len(loaded) == 2
         assert loaded[0]["url"] == "https://a.com"
         assert loaded[1]["title"] == "Page B"
 
+    # Test 3: Loading missing file returns empty list
     def test_load_nonexistent(self, tmp_path):
         storage = JsonStorage(output_dir=str(tmp_path))
         result = storage.load("nonexistent.json")
+        
         assert result == []
 
+    # Test 4: Can save and load empty list
     def test_save_empty_list(self, tmp_path):
         storage = JsonStorage(output_dir=str(tmp_path))
         filepath = storage.save([], "empty.json")
@@ -186,21 +218,22 @@ class TestJsonStorage:
         assert loaded == []
 
 
-# Integration Test
-
+# Integration Test, Tests everything working together
 class TestIntegration:
+    # Complete workflow - config → crawler → storage
     def test_full_workflow(self, tmp_path):
         """Test complete workflow: config -> crawl setup -> storage"""
-        config = CrawlConfig(max_pages=5, max_depth=1)
-        crawler = WebCrawler(config)
-        storage = JsonStorage(output_dir=str(tmp_path))
-
+        config = CrawlConfig(max_pages=5, max_depth=1)   # 1. Create config
+        crawler = WebCrawler(config)   # 2. Create crawler
+        storage = JsonStorage(output_dir=str(tmp_path))    # 3. Create storage
+ 
         # Simulate some results
         pages = [
             Page(url="https://example.com", title="Home", status_code=200),
             Page(url="https://example.com/about", title="About", status_code=200),
         ]
-
+        
+        # Save file
         filepath = storage.save(pages)
         loaded = storage.load()
 
